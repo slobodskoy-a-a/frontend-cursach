@@ -1,0 +1,14 @@
+{
+  "name": "frontend-cursach",
+  "version": "1.0.0",
+  "description": "Интернет-магазин с каталогом товаров и корзиной",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
