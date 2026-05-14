@@ -1,6 +1,6 @@
 import { formatPrice } from "../utils/format.js";
 
-export function createCartPage({ cart, onGoBack, onRemoveItem, onUpdateQty }) {
+export function createCartPage({ cart, onGoBack, onRemoveItem, onUpdateQty, onCheckout }) {
   const el = document.createElement("main");
   el.className = "cart-page";
 
@@ -59,7 +59,7 @@ export function createCartPage({ cart, onGoBack, onRemoveItem, onUpdateQty }) {
 
         <div class="cart-item__controls">
           <button class="cart-item__btn-minus" type="button" data-minus>−</button>
-          <input class="cart-item__qty" type="number" min="1" max="999" readonly />
+          <input class="cart-item__qty" type="number" min="1" max="999" />
           <button class="cart-item__btn-plus" type="button" data-plus>+</button>
         </div>
 
@@ -79,6 +79,11 @@ export function createCartPage({ cart, onGoBack, onRemoveItem, onUpdateQty }) {
 
       card.querySelector("[data-plus]").addEventListener("click", () => {
         onUpdateQty?.(item.product.id, item.qty + 1);
+      });
+
+      qtyInput.addEventListener("change", () => {
+        const qty = Math.max(1, Math.min(999, Number(qtyInput.value) || item.qty));
+        onUpdateQty?.(item.product.id, qty);
       });
 
       card.querySelector("[data-remove]").addEventListener("click", () => {
@@ -107,6 +112,7 @@ export function createCartPage({ cart, onGoBack, onRemoveItem, onUpdateQty }) {
     summaryEl.querySelector(".cart-summary__checkout")?.addEventListener("click", () => {
       alert("Спасибо за покупку! (Демо версия)");
       cart.clear();
+      onCheckout?.();
       render();
     });
 

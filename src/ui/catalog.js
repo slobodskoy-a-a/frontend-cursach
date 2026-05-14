@@ -169,6 +169,8 @@ export function createCatalog({ cart, onAddToCart }) {
   }
 
   function init() {
+    // Сбрасываем пагинацию
+    state.skip = 0;
     // Проверяем, была ли выбрана категория на главной странице
     const selectedCategory = sessionStorage.getItem("selectedCategory");
     if (selectedCategory) {

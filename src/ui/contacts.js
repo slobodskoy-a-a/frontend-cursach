@@ -17,7 +17,7 @@ export function createContacts() {
               <strong>Адрес:</strong> г. Москва, ул. Примерная, д. 1, офис 100
             </div>
             <div class="info-item">
-              <strong>Телефон:</strong> <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+              <strong>Телефон:</strong> <a href="tel:+79021884625">+7 (902) 188-46-25</a>
             </div>
             <div class="info-item">
               <strong>Email:</strong> <a href="mailto:info@pccomponents.ru">info@pccomponents.ru</a>

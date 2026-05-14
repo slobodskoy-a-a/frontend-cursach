@@ -45,6 +45,9 @@ const cartPage = createCartPage({
   onUpdateQty: (id, qty) => {
     cart.setQty(id, qty);
   },
+  onCheckout: () => {
+    header.setCartCount(cart.getCount());
+  },
 });
 
 // Регистрируем маршруты
